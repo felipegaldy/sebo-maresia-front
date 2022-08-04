@@ -1,0 +1,65 @@
+hr {
+    background-color: #222;
+    height: 5px;
+    width: 30%;
+}
+.sobrenos-container{
+    max-width: 1120px;
+    margin: 0 auto!important;
+}
+.title-container{
+    padding: 10px!important;
+    display: flex!important;
+    justify-content: space-between!important;
+    flex-direction: row;
+    align-items: center!important;
+    margin-top: 50px!important;
+}
+.card-fulano{
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.avatar{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+.card-fulano-text{
+    padding: 10px;
+    max-width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+}
+.parte-texto-icones{
+    background-color: powderblue;
+    border-radius: 20px;
+    padding: 20px;
+}
+.text-sobrenos{
+    width: 90%;
+    padding: 10px;
+    margin-left: 10px!important;
+    margin-top: 20px!important;
+}
+.redessociais{
+    display: flex;
+    justify-content: flex-end!important;
+    margin-right: 20px;
+}
+
+.card-fulano2{
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse;
+}

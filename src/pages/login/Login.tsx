@@ -65,7 +65,7 @@ export default function SignIn() {
               required
               fullWidth
               id="email"
-              label="Email Address"
+              label="Digite seu email"
               name="email"
               autoComplete="email"
               autoFocus
@@ -74,10 +74,10 @@ export default function SignIn() {
               margin="normal"
               required
               fullWidth
-              name="password"
-              label="Password"
+              name="senha"
+              label="Senha"
               type="password"
-              id="password"
+              id="senha"
               autoComplete="current-password"
             />
             <FormControlLabel
@@ -99,7 +99,7 @@ export default function SignIn() {
                 </Link>
               </Grid>
               <Grid item>
-                <Link to="/" >
+                <Link to="/cadastrousuario" >
                   {"Não tem conta? Cadastre-se"}
                 </Link>
               </Grid>
