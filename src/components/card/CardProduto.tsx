@@ -12,7 +12,7 @@ function CardProduto() {
       <CardActionArea>
         <CardMedia
           component="img"
-          height="140"
+          height="auto"
           image="https://images.impresa.pt/averdade/2021-06-01-M.-G.-Ferrey-apresenta-novo-livro-na-Escola-Secundaria-de-Felgueiras--3-.jpg-80ce0edc/original"
           alt="green iguana"
         />
@@ -22,16 +22,13 @@ function CardProduto() {
           </Typography>
           <Typography variant="body2" color="text.secondary">
             Mussum Ipsum, cacilds vidis litro abertis. Praesent vel viverra
-            nisi. Mauris aliquet nunc non turpis scelerisque, eget.Detraxit
-            consequat et quo num tendi nada.Manduma pindureta quium dia nois
-            paga.Si u mundo tá muito paradis? Toma um mé que o mundo vai
-            girarzis!
+            nisi. 
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions className="card-actions" >
         <Button size="small" color="primary">
-          Comprar
+          VER DETALHES
         </Button>
         <Typography variant="body2" color="text.secondary">
             R$ 100,00

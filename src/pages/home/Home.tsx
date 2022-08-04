@@ -5,11 +5,13 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import './Home.css';
 import CardProduto from "../../components/card/CardProduto";
+import Carrosel from "../../components/carrosel/Carrosel";
 
 function Home() {
   return (
     <>
       <Grid container spacing={3} columns={12} className="home-container">
+        <Carrosel />
         <Grid item xs={12} className="title-container">
           <hr></hr>
           <Typography variant="h5" component="h1" className="title-produtos" >

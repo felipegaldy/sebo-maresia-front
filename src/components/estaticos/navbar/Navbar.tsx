@@ -9,11 +9,13 @@ import SearchIcon from "@mui/icons-material/Search";
 import { styled, alpha } from "@mui/material/styles";
 import PersonIcon from "@mui/icons-material/Person";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
-  borderRadius: theme.shape.borderRadius,
+  borderRadius: `25px`,
+  border: `1px solid ${theme.palette.grey[800]}`,
   backgroundColor: alpha(theme.palette.common.white, 0.15),
   "&:hover": {
     backgroundColor: alpha(theme.palette.common.white, 0.25),
@@ -52,7 +54,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
   },
 }));
-
+ 
 function Navbar() {
   return (
     <>
@@ -64,27 +66,34 @@ function Navbar() {
             </Button>
           </Box>
           <Box>
+            <Link to="/login" className="text-decorator-none cursor">
             <Button className="botoes-top" color="inherit">
               Login
-            </Button>{" "}
+            </Button>
+            </Link >{" "}
             |{" "}
+            <Link to="/cadastrousuario" className="text-decorator-none cursor">
             <Button className="botoes-top" color="inherit">
               Cadastrar
             </Button>
+            </Link>
           </Box>
         </Toolbar>
       </AppBar>
       {/* PARTE 2 DO HEADER COMEÇA AQUI*/}
       <AppBar position="static" className="app-bar-container" color="inherit">
         <Toolbar className="header-toolbar">
+        <Link to="/home" className="text-decorator-none cursor">
           <Typography
             variant="h6"
             noWrap
-            component="div"
             sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+            className="logo"
           >
-            LOGO
+            SEBO MARESIA
           </Typography>
+          </Link>
+          <Box className="box-search-icones-shop">
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -96,13 +105,27 @@ function Navbar() {
           </Search>
           <PersonIcon className="icones" />
           <ShoppingCartIcon className="icones" />
+          </Box>
         </Toolbar>
+        <Box className="box-botoes-sobrenos-contato">
+          <Link to="/sobrenos" className="text-decorator-none cursor">
+            <Button className="botoes-top botoes-sobrenos-contato" variant="text" >
+              Quem somos
+            </Button>
+            </Link>{" "}
+            |{" "}
+            <Link to="/contato" className="text-decorator-none cursor">
+            <Button className="botoes-top botoes-sobrenos-contato" color="inherit">
+              Contato
+            </Button>
+            </Link>
+          </Box>
         <Box className="nav-botoes">
           <Button variant="text" className="botao-nav" >Romances</Button>
           <Button variant="text" className="botao-nav">Ficção</Button>
           <Button variant="text" className="botao-nav">Suspense</Button>
           <Button variant="text" className="botao-nav">Terror</Button>
-          <Button variant="text" className="botao-nav">Infanto Juvenil</Button>
+          <Button variant="text" className="botao-nav">Infantil</Button>
           <Button variant="text" className="botao-nav">Auto-Ajuda</Button>
         </Box>
       </AppBar>
