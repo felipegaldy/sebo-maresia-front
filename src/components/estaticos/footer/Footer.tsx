@@ -27,7 +27,7 @@ function Footer() {
               Contatos
             </Typography>
             <Typography variant="body1" className="footer-text">
-              <EmailIcon className="footer-icon" /> contato@artativa.com.br
+              <EmailIcon className="footer-icon" /> contato@sebomaresia.com.br
             </Typography>
             <Typography variant="body1" className="footer-text">
               <PhoneIcon className="footer-icon" /> (11) 94002-8922

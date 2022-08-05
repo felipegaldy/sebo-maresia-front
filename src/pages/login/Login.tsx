@@ -14,6 +14,10 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import "./Login.css";
+import UsuarioLogin from '../../models/UsuarioLogin';
+import { useNavigate } from 'react-router-dom';
+import useLocalStorage from 'react-use-localstorage';
+import { api } from '../../services/Services';
 
 function Copyright(props: any) {
   return (
@@ -31,13 +35,47 @@ function Copyright(props: any) {
 const theme = createTheme();
 
 export default function SignIn() {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+
+  let history = useNavigate();
+  const [token, setToken] = useLocalStorage("token");
+  const [usuarioLogin, setUsuarioLogin] = React.useState<UsuarioLogin>({
+    id: 0,
+    nome: "",
+    usuario: "",
+    senha: "",
+    foto: "",
+    dataNascimento: "",
+    token: "",
+  });
+
+  //verifica se o token foi altera e envia para o home
+  React.useEffect(() => {
+    if(token != ""){
+      history("/home");
+    }
+  }, [token]);
+
+
+  // função que atualiza o estado do usuarioLogin na model
+  const updatedModel = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUsuarioLogin({ ...usuarioLogin, [e.target.name]: e.target.value });
+  }
+  // função que faz o login do usuario
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    // const data = new FormData(event.currentTarget);
+    // console.log({
+    //   email: data.get('usuario'),
+    //   password: data.get('senha'),
+    //  });
+
+    try {
+      const resposta = await api.post("/usuarios/logar", usuarioLogin);
+      setToken(resposta.data.token);
+      alert('Usuário logado com sucesso!');
+    }catch(error){
+      alert('Usuário ou senha inválidos!');
+    }
   };
 
   return (
@@ -61,16 +99,20 @@ export default function SignIn() {
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
+              value={usuarioLogin.usuario}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => updatedModel(e)}
               margin="normal"
               required
               fullWidth
-              id="email"
+              id="usuario"
               label="Digite seu email"
-              name="email"
+              name="usuario"
               autoComplete="email"
               autoFocus
             />
             <TextField
+              value={usuarioLogin.senha}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => updatedModel(e)}
               margin="normal"
               required
               fullWidth
@@ -82,7 +124,7 @@ export default function SignIn() {
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
+              label="Lembrar-me"
             />
             <Button
               type="submit"
