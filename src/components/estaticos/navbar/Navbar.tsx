@@ -11,6 +11,8 @@ import PersonIcon from "@mui/icons-material/Person";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import useLocalStorage from 'react-use-localstorage';
+import { useNavigate } from 'react-router-dom';
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -56,6 +58,22 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
  
 function Navbar() {
+  
+  // const [token, setToken] = useLocalStorage("token");
+  // const [login, setLogin] = React.useState("");
+
+  // React.useEffect(() => {
+  //   if(token != ""){
+  //     console.log("token: " + token);
+  //   }
+  // }, [token]);
+
+  // const testeModificar = () => {
+  //   let nome = document.querySelector(".botoes-top")?.;
+  //   nome.innerHTML = "teste";
+  // }
+
+
   return (
     <>
       <AppBar position="static" className="top-app-bar-container">
